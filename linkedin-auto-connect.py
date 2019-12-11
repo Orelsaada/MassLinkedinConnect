@@ -36,6 +36,14 @@ search_bar.send_keys(SEARCH_WORDS)
 time.sleep(2)
 search_bar.send_keys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER)
 
+# Filter by Israel
+time.sleep(4)
+driver.find_element_by_xpath('/html/body/div[6]/div[4]/div[3]/div/div[1]/header/div/div/div[2]/div/div/div/ul/li[2]/form/button').click()
+israel_checkbox = driver.find_element_by_id('geoRegion-il:0')
+driver.execute_script("arguments[0].click();", israel_checkbox)
+driver.find_element_by_xpath('/html/body/div[6]/div[4]/div[3]/div/div[1]/header/div/div/div[2]/div/div/div/ul/li[2]/form/div/fieldset/div/div[2]/div/button[2]').click()
+print("Filtering by Locations: Israel")
+
 
 def connect_all_on_page():
     # Connect 10 people on page
